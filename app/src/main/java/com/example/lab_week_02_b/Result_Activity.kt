@@ -10,12 +10,14 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import android.graphics.Color
 import android.content.Intent
 import android.app.Activity
+import android.widget.Button
 
 class Result_Activity : AppCompatActivity() {
     companion object {
         private const val COLOR_KEY = "COLOR_KEY"
         private const val ERROR_KEY = "ERROR_KEY"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -45,6 +47,11 @@ class Result_Activity : AppCompatActivity() {
                 findViewById<TextView>(R.id.color_code_result_message)
             resultMessage.text = getString(R.string.color_code_result_message,
                 colorCode?.uppercase())
+        }
+
+        val backButton = findViewById<Button>(R.id.back_button)
+        backButton.setOnClickListener{
+            finish()
         }
     }
 }
